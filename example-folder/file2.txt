@@ -1,0 +1,3 @@
+This is the second file in the example folder.
+
+You can add multiple files to a folder by creating them and then committing.
