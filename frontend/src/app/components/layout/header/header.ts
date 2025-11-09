@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Para *ngIf
 
 // Módulos de Material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -11,6 +12,7 @@ import { MatMenuModule } from '@angular/material/menu'; // Para el menú de usua
   selector: 'app-header',
   standalone: true,
   imports: [
+    CommonModule, // Agregado para *ngIf
     RouterLink, 
     MatToolbarModule, 
     MatButtonModule, 

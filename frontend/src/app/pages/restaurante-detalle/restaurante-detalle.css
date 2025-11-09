@@ -1,0 +1,217 @@
+/* src/app/pages/restaurante-detalle/restaurante-detalle.css */
+
+.detalle-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Estados de carga y error */
+.loader-detalle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error-message {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  color: #e74c3c;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  border: 2px solid #e74c3c;
+  margin: 20px 0;
+}
+
+.detalle-content {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.8s ease-out;
+}
+
+.detalle-content h1 {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-weight: 800;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.detalle-content h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #e74c3c, #f39c12);
+  border-radius: 2px;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+/* Tabs de Material */
+::ng-deep .mat-mdc-tab-group {
+  margin-top: 30px;
+}
+
+::ng-deep .mat-mdc-tab-header {
+  border-bottom: 2px solid #e0e0e0;
+}
+
+::ng-deep .mat-mdc-tab-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #666;
+}
+
+::ng-deep .mat-mdc-tab-label-active {
+  color: #e74c3c;
+}
+
+::ng-deep .mat-mdc-tab-label-active .mdc-tab__content {
+  color: #e74c3c;
+}
+
+::ng-deep .mdc-tab-indicator__content--underline {
+  border-color: #e74c3c;
+  border-width: 3px;
+}
+
+.tab-content {
+  padding: 30px 0;
+}
+
+.description-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #e0e0e0;
+  margin: 40px 0;
+}
+
+/* Módulo de Reserva */
+.reservation-module {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 30px;
+}
+
+.reservation-module h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.reservation-module h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #e74c3c, #f39c12);
+  border-radius: 2px;
+}
+
+.reservation-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.form-field ::ng-deep .mat-mdc-form-field {
+  width: 100%;
+}
+
+.form-field ::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.check-button {
+  grid-column: 1 / -1;
+  height: 55px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+  color: white !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.check-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(231, 76, 60, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .detalle-container {
+    padding: 20px 10px;
+  }
+  
+  .detalle-content {
+    padding: 25px 20px;
+  }
+  
+  .detalle-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .reservation-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .reservation-module {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detalle-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .description-text {
+    font-size: 1rem;
+  }
+}
+
