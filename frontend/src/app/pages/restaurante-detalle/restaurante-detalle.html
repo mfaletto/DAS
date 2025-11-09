@@ -1,0 +1,58 @@
+<div class="detalle-container">
+  
+  <div *ngIf="cargando" class="loader-detalle">Cargando detalles...</div>
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+
+  <div *ngIf="restaurante" class="detalle-content">
+    
+    <h1>{{ restaurante.razonSocial }}</h1>
+    <p class="subtitle">Italian cuisine in the heart of the city (ID: {{ restaurante.nroRestaurante }})</p>
+    
+    <mat-tab-group>
+      <mat-tab label="Description">
+        <div class="tab-content">
+          <p class="description-text">
+            La Trattoria offers a delightful culinary journey through Italy, featuring classic dishes prepared with fresh, locally-sourced ingredients...
+          </p>
+          
+          <hr>
+          
+          <div class="reservation-module">
+            <h2>Reservation Module</h2>
+            
+            <form class="reservation-form">
+              
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Branch</mat-label>
+                <mat-select required>
+                  <mat-option value="1">Sucursal Centro</mat-option>
+                  <mat-option value="2">Sucursal Nueva Córdoba</mat-option>
+                </mat-select>
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Date</mat-label>
+                <input matInput type="date" required>
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Time</mat-label>
+                <input matInput type="time" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Diners</mat-label>
+                <input matInput type="number" min="1" required>
+              </mat-form-field>
+
+              <button mat-raised-button color="warn" type="submit" class="check-button">
+                Check Availability
+              </button>
+            </form>
+          </div>
+        </div>
+      </mat-tab>
+      </mat-tab-group>
+    
+  </div>
+</div>
