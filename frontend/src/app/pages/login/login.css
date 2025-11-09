@@ -1,0 +1,64 @@
+/* src/app/pages/login/login.css y registro.css */
+
+/* Contenedor principal: Centra la tarjeta en la pantalla */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Asegura que ocupe la mayor parte de la altura visible */
+    background-color: #f7f7f7; /* Fondo claro para destacar la tarjeta */
+}
+
+/* Tarjeta del Formulario (Mat-Card) */
+.auth-card {
+    max-width: 450px;
+    width: 90%;
+    padding: 20px 30px; /* Padding ajustado */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* Campos de Formulario */
+.full-width-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Botón principal (Register / Iniciar Sesión) */
+.submit-button {
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    background-color: #e74c3c !important; /* Rojo del mockup (Color principal de Ristorino) */
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #c0392b !important;
+}
+
+mat-card-actions {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.error-registro {
+    color: #e74c3c;
+    background-color: #fceaeaea;
+    border: 1px solid #e74c3c;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.9rem;
+}

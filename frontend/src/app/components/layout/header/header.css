@@ -1,0 +1,38 @@
+/* src/app/components/layout/header/header.css */
+
+.ristorino-toolbar {
+    /* Color de tu mockup (Rojo/Naranja fuerte) */
+    background-color: #e74c3c !important; 
+    color: white;
+    padding: 0 24px;
+}
+
+.portal-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+/* Estilo para los botones de navegación */
+mat-toolbar button {
+    margin: 0 5px;
+    color: white;
+}
+
+/* Estilo para el botón Registrarse (Color de acento) */
+mat-toolbar [color="accent"] {
+    background-color: #f39c12; /* Naranja/Dorado fuerte */
+    color: white;
+    font-weight: 600;
+}
+
+/* Ocultar elementos en pantallas pequeñas si es necesario */
+@media (max-width: 600px) {
+    mat-toolbar button:not([routerLink="/login"]):not([routerLink="/registro"]) {
+        display: none;
+    }
+}

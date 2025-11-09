@@ -1,0 +1,642 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f5f1f0] px-10 py-3">
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#181211]">
+              <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6_535)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z"
+                      fill="currentColor"
+                    ></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_6_535"><rect width="48" height="48" fill="white"></rect></clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-[#181211] text-lg font-bold leading-tight tracking-[-0.015em]">Ristorino Portal</h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a class="text-[#181211] text-sm font-medium leading-normal" href="#">Inicio</a>
+              <a class="text-[#181211] text-sm font-medium leading-normal" href="#">Buscar</a>
+              <a class="text-[#181211] text-sm font-medium leading-normal" href="#">Mis Reservas</a>
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-[#8a6760] flex border-none bg-[#f5f1f0] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181211] focus:outline-0 focus:ring-0 border-none bg-[#f5f1f0] focus:border-none h-full placeholder:text-[#8a6760] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f2330d] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Iniciar Sesión</span>
+            </button>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p class="text-[#181211] tracking-light text-[32px] font-bold leading-tight min-w-72">Grilla de disponibilidad horaria</p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-6 p-4">
+              <div class="flex min-w-72 max-w-[336px] flex-1 flex-col gap-0.5">
+                <div class="flex items-center p-1 justify-between">
+                  <button>
+                    <div class="text-[#181211] flex size-10 items-center justify-center" data-icon="CaretLeft" data-size="18px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
+                      </svg>
+                    </div>
+                  </button>
+                  <p class="text-[#181211] text-base font-bold leading-tight flex-1 text-center pr-10">Julio 2024</p>
+                </div>
+                <div class="grid grid-cols-7">
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">S</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">M</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">T</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">W</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">T</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">F</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">S</p>
+                  <button class="h-12 w-full text-[#181211] col-start-4 text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">1</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">2</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">3</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">4</div>
+                  </button>
+                  <button class="h-12 w-full text-white text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full bg-[#f2330d]">5</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">6</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">7</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">8</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">9</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">10</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">11</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">12</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">13</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">14</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">15</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">16</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">17</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">18</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">19</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">20</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">21</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">22</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">23</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">24</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">25</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">26</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">27</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">28</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">29</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">30</div>
+                  </button>
+                </div>
+              </div>
+              <div class="flex min-w-72 max-w-[336px] flex-1 flex-col gap-0.5">
+                <div class="flex items-center p-1 justify-between">
+                  <p class="text-[#181211] text-base font-bold leading-tight flex-1 text-center pl-10">Agosto 2024</p>
+                  <button>
+                    <div class="text-[#181211] flex size-10 items-center justify-center" data-icon="CaretRight" data-size="18px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+                <div class="grid grid-cols-7">
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">S</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">M</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">T</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">W</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">T</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">F</p>
+                  <p class="text-[#181211] text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">S</p>
+                  <button class="h-12 w-full text-[#181211] col-start-4 text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">1</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">2</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">3</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">4</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">5</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">6</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">7</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">8</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">9</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">10</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">11</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">12</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">13</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">14</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">15</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">16</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">17</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">18</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">19</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">20</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">21</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">22</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">23</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">24</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">25</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">26</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">27</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">28</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">29</div>
+                  </button>
+                  <button class="h-12 w-full text-[#181211] text-sm font-medium leading-normal">
+                    <div class="flex size-full items-center justify-center rounded-full">30</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-lg border border-[#e6dddb] bg-white">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-white">
+                      <th class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 px-4 py-3 text-left text-[#181211] w-[400px] text-sm font-medium leading-normal">Horario</th>
+                      <th class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 px-4 py-3 text-left text-[#181211] w-60 text-sm font-medium leading-normal">Mesa 1</th>
+                      <th class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 px-4 py-3 text-left text-[#181211] w-60 text-sm font-medium leading-normal">Mesa 2</th>
+                      <th class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 px-4 py-3 text-left text-[#181211] w-60 text-sm font-medium leading-normal">Mesa 3</th>
+                      <th class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 px-4 py-3 text-left text-[#181211] w-60 text-sm font-medium leading-normal">Mesa 4</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">18:00</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">18:30</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">19:00</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">19:30</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">20:00</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">20:30</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">21:00</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">21:30</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">22:00</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#e6dddb]">
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120 h-[72px] px-4 py-2 w-[400px] text-[#181211] text-sm font-normal leading-normal">22:30</td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Disponible</span>
+                        </button>
+                      </td>
+                      <td class="table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f5f1f0] text-[#181211] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disponible</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <style>
+                          @container(max-width:120px){.table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-120{display: none;}}
+                @container(max-width:240px){.table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-240{display: none;}}
+                @container(max-width:360px){.table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-360{display: none;}}
+                @container(max-width:480px){.table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-480{display: none;}}
+                @container(max-width:600px){.table-3fdf9e13-6141-4fb1-8843-7eaa45d48122-column-600{display: none;}}
+              </style>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

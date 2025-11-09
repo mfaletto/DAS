@@ -1,0 +1,128 @@
+/* src/app/pages/home/home.css */
+
+.home-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* --- Sección Hero (Mockup - Banner Principal) --- */
+.hero-section {
+  position: relative;
+  height: 400px;
+  /* Imagen de ambiente para el mockup */
+  background-image: url('https://images.unsplash.com/photo-1549488344-be1f49635f79?q=80&w=1200&h=400&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Oscurecimiento para que el texto resalte */
+  background: rgba(0, 0, 0, 0.5); 
+  border-radius: 8px;
+}
+
+.hero-section h1, .hero-section p, .hero-section .search-bar {
+  position: relative;
+  /* Asegura que el texto esté visible sobre la capa oscura */
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+/* Estilo de la Barra de Búsqueda de Lenguaje Natural (Mockup) */
+.search-bar {
+  display: flex;
+  margin-top: 20px;
+  background: white;
+  border-radius: 30px;
+  padding: 5px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  width: 300px;
+  font-size: 1rem;
+}
+
+/* --- Título de la Sección de Promociones --- */
+h2 {
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  /* Color de acento de Ristorino (Rojo/Naranja) */
+  color: #c0392b; 
+  font-weight: 700;
+}
+
+/* --- Estados de Carga y Error --- */
+.loader-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #888;
+}
+
+.error-container {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* --- Grid de Promociones --- */
+.promociones-grid {
+  display: grid;
+  /* La clave para la responsividad: ajusta las columnas automáticamente */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.promo-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.promo-card img {
+  /* Estilo para la imagen que importamos de la API */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.promo-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.promo-card p {
+    color: #7f8c8d; /* Texto gris más suave */
+    font-size: 0.95rem;
+}
