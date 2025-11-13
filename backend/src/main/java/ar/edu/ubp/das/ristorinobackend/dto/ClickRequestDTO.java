@@ -6,6 +6,7 @@ public class ClickRequestDTO {
     private Integer nroRestaurante;
     private Integer nroIdioma;
     private Integer nroContenido;
+    private Integer nroCliente;
 
     public Integer getNroRestaurante() {
         return nroRestaurante;
@@ -30,6 +31,12 @@ public class ClickRequestDTO {
     public void setNroContenido(Integer nroContenido) {
         this.nroContenido = nroContenido;
     }
-    // 💡 Genera Getters y Setters para estos 3 campos (Alt+Insert)
-    // ...
+
+    public Integer getNroCliente() {
+        return nroCliente;
+    }
+
+    public void setNroCliente(Integer nroCliente) {
+        this.nroCliente = nroCliente;
+    }
 }

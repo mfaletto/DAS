@@ -1,7 +1,9 @@
 package ar.edu.ubp.das.ristorinobackend.controller;
 
+import ar.edu.ubp.das.ristorinobackend.dto.LoginRequest;
+import ar.edu.ubp.das.ristorinobackend.dto.LoginResponse;
 import ar.edu.ubp.das.ristorinobackend.dto.RegistroRequest;
-import ar.edu.ubp.das.ristorinobackend.service.PromocionService;
+import ar.edu.ubp.das.ristorinobackend.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     @Autowired
-    private PromocionService promocionService;
+    private AuthService authService;
 
     /**
      * ENDPOINT: POST /api/v1/auth/register
@@ -21,7 +23,7 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<Void> registerUser(@RequestBody RegistroRequest request) {
         try {
-            promocionService.registrarCliente(request);
+            authService.registrar(request);
             return ResponseEntity.status(201).build(); // 201 Created
         } catch (Exception e) {
             // Error común: el correo ya existe (ConstraintViolationException)
@@ -29,5 +31,13 @@ public class AuthController {
         }
     }
 
-    // 💡 Aquí iría el POST /login (RF 2)
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+        try {
+            LoginResponse response = authService.login(request);
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.status(401).build();
+        }
+    }
 }

@@ -1,25 +1,32 @@
 package ar.edu.ubp.das.ristorinobackend.service;
 
+import ar.edu.ubp.das.ristorinobackend.bean.ClickBean;
+import ar.edu.ubp.das.ristorinobackend.bean.ContenidoBean;
+import ar.edu.ubp.das.ristorinobackend.bean.ContenidoIdBean;
+import ar.edu.ubp.das.ristorinobackend.component.UrlHasher;
 import ar.edu.ubp.das.ristorinobackend.dto.ClickRequestDTO;
-import ar.edu.ubp.das.ristorinobackend.dto.RegistroRequest;
-import ar.edu.ubp.das.ristorinobackend.entity.ClicksContenidosRestaurantes;
-import ar.edu.ubp.das.ristorinobackend.entity.Cliente;
-import ar.edu.ubp.das.ristorinobackend.entity.ContenidosRestaurantes;
-import ar.edu.ubp.das.ristorinobackend.entity.ContenidosRestaurantesId;
 import ar.edu.ubp.das.ristorinobackend.repository.ClicksContenidosRepository;
-import ar.edu.ubp.das.ristorinobackend.repository.ClienteRepository;
 import ar.edu.ubp.das.ristorinobackend.repository.ContenidosRestaurantesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
 
-@Service // ⬅️ Marca esta clase como un Servicio de Spring
+@Service
 public class PromocionService {
 
-    // 1. Inyectamos los repositorios que creamos en la Fase 1
+    @Value("${ristorino.portal.nro:1}")
+    private Integer defaultPortalId;
+
+    @Value("${ristorino.portal.idioma:1}")
+    private Integer defaultIdiomaId;
+
     @Autowired
     private ContenidosRestaurantesRepository contenidosRepo;
 
@@ -27,66 +34,62 @@ public class PromocionService {
     private ClicksContenidosRepository clicksRepo;
 
     @Autowired
-    private ClienteRepository clienteRepo;
-    /**
-     * Lógica para el Endpoint: GET /api/v1/promociones
-     * (Requisito: Visualizar promociones)
-     * * Simplemente busca y devuelve todas las promociones
-     * que insertamos en la base de datos.
-     */
-    public List<ContenidosRestaurantes> getPromociones() {
-        return contenidosRepo.findAll();
+    private UrlHasher urlHasher;
+
+    private final Map<String, String> mapaImagenesPorHash = new ConcurrentHashMap<>();
+
+    public List<ContenidoBean> getPromociones() {
+        List<ContenidoBean> promociones = cargarPromociones();
+        return promociones.stream()
+                .map(this::protegerImagen)
+                .collect(Collectors.toList());
     }
 
-    /**
-     * Lógica para el Endpoint: POST /api/v1/promociones/clic
-     * (Requisito: Registrar clic para monetización)
-     *
-     * Esta es la lógica clave del entregable.
-     */
     public void registrarClic(ClickRequestDTO clickDTO) {
-        // 1. Crear el ID compuesto de la promoción que se clickeó
-        ContenidosRestaurantesId contenidoId = new ContenidosRestaurantesId();
+        ContenidoIdBean contenidoId = new ContenidoIdBean();
         contenidoId.setNroRestaurante(clickDTO.getNroRestaurante());
         contenidoId.setNroIdioma(clickDTO.getNroIdioma());
         contenidoId.setNroContenido(clickDTO.getNroContenido());
 
-        // 2. Buscar la promoción en la DB para obtener su costo
-        Optional<ContenidosRestaurantes> promocionOpt = contenidosRepo.findById(contenidoId);
-        if (!promocionOpt.isPresent()) {
-            // Si no se encuentra la promoción, lanzamos un error
-            throw new RuntimeException("Contenido (promoción) no encontrado");
+        Optional<ContenidoBean> promocionOpt = contenidosRepo.findById(contenidoId);
+        ContenidoBean promocion = promocionOpt.orElseThrow(() -> new IllegalArgumentException("Contenido no encontrado"));
+
+        ClickBean nuevoClic = new ClickBean();
+        nuevoClic.setNroCliente(clickDTO.getNroCliente());
+        nuevoClic.setNroRestaurante(clickDTO.getNroRestaurante());
+        nuevoClic.setNroIdioma(clickDTO.getNroIdioma());
+        nuevoClic.setNroContenido(clickDTO.getNroContenido());
+        nuevoClic.setFechaHoraRegistro(LocalDateTime.now());
+        nuevoClic.setCostoClick(promocion.getCostoClick());
+
+        if (clicksRepo.existeClickReciente(nuevoClic)) {
+            return; // Evita monetizar múltiples veces con F5
         }
-        ContenidosRestaurantes promocion = promocionOpt.get();
 
-        // 3. Crear el nuevo registro de Clic
-        ClicksContenidosRestaurantes nuevoClic = new ClicksContenidosRestaurantes();
-
-        nuevoClic.setContenido(promocion); // Asigna la promoción
-        nuevoClic.setFechaHoraRegistro(LocalDateTime.now()); // Setea la fecha y hora actual
-        nuevoClic.setCostoClick(promocion.getCostoClick()); // Copia el costo desde la promoción
-        nuevoClic.setNotificado(false); // Cumple el requisito ("sin notificaciones inmediatas")
-
-        // (Opcional) Asignar cliente si estuviera logueado. Por ahora es NULL.
-        // nuevoClic.setCliente(cliente);
-
-        // 4. Guardar el nuevo clic en la base de datos
-        clicksRepo.save(nuevoClic);
+        clicksRepo.registrarClick(nuevoClic);
     }
-    public void registrarCliente(RegistroRequest request) {
-        Cliente nuevoCliente = new Cliente();
 
-        // ⚠️ Buena Práctica: Aquí DEBERÍA encriptarse la clave (ej: BCrypt)
-        // Por ahora, la guardamos en texto plano para la prueba.
+    private ContenidoBean protegerImagen(ContenidoBean contenido) {
+        String hash = urlHasher.hash(contenido.getImagenPromocional());
+        contenido.setImagenPromocionalHash(hash);
+        contenido.setImagenPromocionalUrl(urlHasher.buildPublicUrl(hash));
+        mapaImagenesPorHash.put(hash, contenido.getImagenPromocional());
+        contenido.setImagenPromocional(null);
+        return contenido;
+    }
 
-        nuevoCliente.setNombre(request.getNombre());
-        nuevoCliente.setApellido("N/A"); // El mockup no pide apellido, lo seteamos N/A
-        nuevoCliente.setCorreo(request.getCorreo());
-        nuevoCliente.setClave(request.getClave());
-        nuevoCliente.setTelefonos(request.getTelefonos());
-        nuevoCliente.setNroLocalidad(request.getNroLocalidad());
-        nuevoCliente.setHabilitado(true);
+    public Optional<String> obtenerUrlImagenPorHash(String hash) {
+        String url = mapaImagenesPorHash.get(hash);
+        if (url != null) {
+            return Optional.of(url);
+        }
+        cargarPromociones().forEach(this::protegerImagen);
+        return Optional.ofNullable(mapaImagenesPorHash.get(hash));
+    }
 
-        clienteRepo.save(nuevoCliente);
+    private List<ContenidoBean> cargarPromociones() {
+        List<ContenidoBean> promociones = contenidosRepo.findPromocionesDisponibles(defaultPortalId, defaultIdiomaId);
+        mapaImagenesPorHash.clear();
+        return promociones;
     }
 }

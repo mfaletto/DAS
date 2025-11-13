@@ -1,21 +1,12 @@
-package ar.edu.ubp.das.ristorinobackend.entity;
+package ar.edu.ubp.das.ristorinobackend.bean;
 
-import jakarta.persistence.*;
+public class RestauranteBean {
 
-@Entity
-@Table(name = "restaurantes", schema = "dbo")
-public class Restaurante {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "nro_restaurante")
     private Integer nroRestaurante;
-
-    @Column(name = "razon_social", length = 200, nullable = false)
     private String razonSocial;
-
-    @Column(name = "cuit", length = 20, nullable = false, unique = true)
     private String cuit;
+    private String emailContacto;
+    private String urlNotificacion;
 
     public Integer getNroRestaurante() {
         return nroRestaurante;
@@ -41,6 +32,19 @@ public class Restaurante {
         this.cuit = cuit;
     }
 
-    // 💡 Consejo: Genera Getters y Setters
-    // ...
+    public String getEmailContacto() {
+        return emailContacto;
+    }
+
+    public void setEmailContacto(String emailContacto) {
+        this.emailContacto = emailContacto;
+    }
+
+    public String getUrlNotificacion() {
+        return urlNotificacion;
+    }
+
+    public void setUrlNotificacion(String urlNotificacion) {
+        this.urlNotificacion = urlNotificacion;
+    }
 }

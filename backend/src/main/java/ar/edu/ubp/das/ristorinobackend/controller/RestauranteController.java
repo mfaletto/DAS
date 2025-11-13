@@ -1,6 +1,6 @@
 package ar.edu.ubp.das.ristorinobackend.controller;
 
-import ar.edu.ubp.das.ristorinobackend.entity.Restaurante;
+import ar.edu.ubp.das.ristorinobackend.bean.RestauranteBean;
 import ar.edu.ubp.das.ristorinobackend.service.RestauranteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +21,8 @@ public class RestauranteController {
      * Requisito: Muestra información del restaurante para la vista de detalle.
      */
     @GetMapping("/{id}")
-    public ResponseEntity<Restaurante> getRestaurante(@PathVariable("id") Integer id) {
-        Optional<Restaurante> restaurante = restauranteService.getRestaurantePorId(id);
+    public ResponseEntity<RestauranteBean> getRestaurante(@PathVariable("id") Integer id) {
+        Optional<RestauranteBean> restaurante = restauranteService.getRestaurantePorId(id);
 
         if (restaurante.isPresent()) {
             return ResponseEntity.ok(restaurante.get()); // 200 OK con datos

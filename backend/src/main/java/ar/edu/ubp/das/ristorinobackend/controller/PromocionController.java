@@ -1,7 +1,7 @@
 package ar.edu.ubp.das.ristorinobackend.controller;
 
+import ar.edu.ubp.das.ristorinobackend.bean.ContenidoBean;
 import ar.edu.ubp.das.ristorinobackend.dto.ClickRequestDTO;
-import ar.edu.ubp.das.ristorinobackend.entity.ContenidosRestaurantes;
 import ar.edu.ubp.das.ristorinobackend.service.PromocionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +25,9 @@ public class PromocionController {
      * URL: GET http://localhost:8080/api/v1/promociones
      */
     @GetMapping
-    public ResponseEntity<List<ContenidosRestaurantes>> getPromociones() {
+    public ResponseEntity<List<ContenidoBean>> getPromociones() {
         // Llama al servicio, que llama al repositorio, que trae los datos de SQL Server
-        List<ContenidosRestaurantes> promociones = promocionService.getPromociones();
+        List<ContenidoBean> promociones = promocionService.getPromociones();
         return ResponseEntity.ok(promociones); // Devuelve la lista como JSON con un estado 200 OK
     }
 

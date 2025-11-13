@@ -18,7 +18,8 @@ export interface PromocionId {
 export interface Promocion {
   id: PromocionId; // El ID es un objeto anidado
   contenidoPromocional: string;
-  imagenPromocional: string;
+  imagenPromocionalUrl: string;
+  imagenPromocionalHash: string;
   fechaIniVigencia: string; // JSON convierte las fechas a strings
   fechaFinVigencia: string | null; // Puede ser nulo
   costoClick: number;
@@ -33,6 +34,7 @@ export interface ClickRequest {
   nroRestaurante: number;
   nroIdioma: number;
   nroContenido: number;
+  nroCliente?: number;
 }
 
 /**
@@ -46,4 +48,15 @@ export interface RegistroRequest {
   clave: string;
   telefonos: string;
   // Omitimos preferencias y dirección por simplicidad de conexión inicial
+}
+
+export interface LoginRequest {
+  correo: string;
+  clave: string;
+}
+
+export interface LoginResponse {
+  token: string;
+  tokenType: string;
+  expiresIn: number;
 }

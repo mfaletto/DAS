@@ -5,6 +5,13 @@
 
   <div *ngIf="restaurante" class="detalle-content">
     
+    <div class="header-actions">
+      <button mat-stroked-button class="back-button" (click)="volverAlHome()" aria-label="Volver al inicio">
+        <mat-icon>arrow_back</mat-icon>
+        <span class="back-text">Volver al inicio</span>
+      </button>
+    </div>
+    
     <h1>{{ restaurante.razonSocial }}</h1>
     <p class="subtitle">Italian cuisine in the heart of the city (ID: {{ restaurante.nroRestaurante }})</p>
     

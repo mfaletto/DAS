@@ -1,7 +1,7 @@
 // src/app/pages/restaurante-detalle/restaurante-detalle.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router'; // ⬅️ Para leer el ID de la URL
+import { ActivatedRoute, Router } from '@angular/router'; // ⬅️ Para leer el ID de la URL y navegar
 import { Api } from '../../services/api';
 // ... (imports de Material necesarios) ...
 
@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon'; // Para el icono de flecha
 
 @Component({
   selector: 'app-restaurante-detalle',
@@ -21,7 +22,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   templateUrl: './restaurante-detalle.html',
   styleUrls: ['./restaurante-detalle.css']
@@ -34,18 +36,31 @@ export class RestauranteDetalle implements OnInit {
 
   constructor(
     private route: ActivatedRoute, // Para acceder a la URL
+    private router: Router, // Para navegar
     private api: Api
   ) {}
 
   ngOnInit(): void {
-    // 1. Obtener el ID del restaurante de la URL (ruta /restaurante/:id)
-    this.route.paramMap.subscribe(params => {
-      this.restauranteId = Number(params.get('id')); // Convierte el ID a número
-      this.cargarDetalles();
-    });
+    // 1. Intentar obtener datos del Resolver (precargados)
+    const restauranteResuelto = this.route.snapshot.data['restaurante'];
+    
+    if (restauranteResuelto) {
+      // Los datos ya vienen del Resolver
+      this.restaurante = restauranteResuelto;
+      this.restauranteId = this.restaurante.nroRestaurante;
+      this.cargando = false;
+      this.error = null;
+    } else {
+      // Fallback: cargar manualmente si el resolver no funcionó
+      this.route.paramMap.subscribe(params => {
+        this.restauranteId = Number(params.get('id'));
+        this.cargarDetalles();
+      });
+    }
   }
 
   cargarDetalles(): void {
+    this.cargando = true;
     this.api.getRestauranteDetalle(this.restauranteId).subscribe({
       next: (data) => {
         this.restaurante = data;
@@ -58,5 +73,10 @@ export class RestauranteDetalle implements OnInit {
         console.error('Error:', err);
       }
     });
+  }
+
+  // Método para volver al home
+  volverAlHome(): void {
+    this.router.navigate(['/']);
   }
 }

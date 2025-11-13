@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // Importamos los "moldes" que creamos en la Fase 3
-import { Promocion, ClickRequest, RegistroRequest } from '../models/promocion.model';
+import { Promocion, ClickRequest, RegistroRequest, LoginRequest, LoginResponse } from '../models/promocion.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +49,9 @@ export class Api { // El nombre de la clase es 'Api'
     const url = `${this.apiUrl}/auth/register`;
     // El backend espera: { nombre, correo, clave, etc. }
     return this.http.post(url, data);
+  }
+
+  login(data: LoginRequest): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.apiUrl}/auth/login`, data);
   }
 }

@@ -84,4 +84,21 @@ export class Home implements OnInit { // El nombre de la clase es 'Home'
     // (Aún no tenemos el ID del restaurante, usaremos el nroRestaurante como ID)
     this.router.navigate(['/restaurante', promocion.id.nroRestaurante]);
   }
+
+  // Función para obtener la URL de la imagen con fallback
+  private readonly apiBase = 'http://localhost:8080';
+
+  getImagenUrl(promocion: Promocion): string {
+    if (promocion.imagenPromocionalUrl) {
+      return `${this.apiBase}${promocion.imagenPromocionalUrl}`;
+    }
+    return 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.1.0&...';
+  }
+
+  // Manejo de errores al cargar imágenes
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    // Si falla la carga, usar imagen por defecto
+    img.src = 'https://images.unsplash.com/photo-1517248135467-4c7edcad99c9?w=600&h=400&fit=crop&q=80';
+  }
 }

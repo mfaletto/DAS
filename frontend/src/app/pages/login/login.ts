@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 // Servicio y Modelos (Aunque la lógica de Login es trivial por ahora)
 import { Api } from '../../services/api'; 
-// import { LoginRequest } from '../../models/auth.model'; // Se crearía un modelo para login
+import { LoginRequest } from '../../models/promocion.model';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +29,7 @@ import { Api } from '../../services/api';
 export class Login implements OnInit { // ⬅️ Nombre de la clase: Login
     
     // Modelo de datos para el Two-Way Binding
-    loginData = {
+    loginData: LoginRequest = {
         correo: '',
         clave: ''
     };
@@ -46,15 +46,16 @@ export class Login implements OnInit { // ⬅️ Nombre de la clase: Login
         this.cargando = true;
         this.errorLogin = null;
         
-        // ⚠️ En un proyecto real, aquí se llamaría a this.api.iniciarSesion(this.loginData)
-        
-        console.log("Simulando inicio de sesión para:", this.loginData.correo);
-        
-        // Simulación de éxito (solo para pruebas)
-        setTimeout(() => {
-            this.cargando = false;
-            alert("¡Inicio de sesión simulado exitoso!");
-            this.router.navigate(['/home']); // Redirigir al home
-        }, 1000);
+        this.api.login(this.loginData).subscribe({
+            next: (response) => {
+                localStorage.setItem('ristorino_token', response.token);
+                this.cargando = false;
+                this.router.navigate(['/home']);
+            },
+            error: () => {
+                this.cargando = false;
+                this.errorLogin = 'Credenciales inválidas. Intenta nuevamente.';
+            }
+        });
     }
 }

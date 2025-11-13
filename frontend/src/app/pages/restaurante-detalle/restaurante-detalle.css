@@ -34,6 +34,40 @@
   padding: 40px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   animation: slideIn 0.8s ease-out;
+  position: relative;
+}
+
+/* Botón de volver */
+.header-actions {
+  margin-bottom: 20px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e74c3c !important;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  background-color: rgba(231, 76, 60, 0.1) !important;
+  font-weight: 600;
+}
+
+.back-button:hover {
+  background-color: rgba(231, 76, 60, 0.2) !important;
+  transform: translateX(-5px);
+}
+
+.back-button mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.back-text {
+  font-size: 1rem;
+  margin-left: 4px;
 }
 
 .detalle-content h1 {
@@ -214,4 +248,5 @@ hr {
     font-size: 1rem;
   }
 }
+
 

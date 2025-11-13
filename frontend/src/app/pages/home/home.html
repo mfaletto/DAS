@@ -25,7 +25,14 @@
     <mat-card 
       *ngFor="let promo of promociones" 
       class="promo-card" 
-      (click)="onPromocionClick(promo)"> <img mat-card-image [src]="promo.imagenPromocional" [alt]="promo.contenidoPromocional">
+      (click)="onPromocionClick(promo)">
+      
+      <img 
+        mat-card-image 
+        [src]="getImagenUrl(promo)" 
+        [alt]="promo.contenidoPromocional"
+        (error)="onImageError($event)"
+        loading="lazy">
 
       <mat-card-content>
         <h3>{{ promo.contenidoPromocional }}</h3>
