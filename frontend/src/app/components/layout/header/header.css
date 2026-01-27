@@ -1,0 +1,118 @@
+/* src/app/components/layout/header/header.css */
+
+.ristorino-toolbar {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+    color: white;
+    padding: 0 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.ristorino-toolbar:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.portal-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.portal-logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+.portal-logo::before {
+    content: '🍽️';
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+/* Estilo para los botones de navegación */
+mat-toolbar button {
+    margin: 0 8px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 8px 16px;
+}
+
+mat-toolbar button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+mat-toolbar button[routerLink="/home"] {
+    font-weight: 600;
+}
+
+/* Estilo para el botón Registrarse (Color de acento) */
+mat-toolbar [color="accent"] {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%) !important;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+    border-radius: 25px;
+    padding: 10px 24px;
+}
+
+mat-toolbar [color="accent"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+}
+
+/* Botón de idioma */
+.language-button {
+    transition: transform 0.3s ease;
+}
+
+.language-button:hover {
+    transform: rotate(15deg) scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .portal-logo {
+        font-size: 1.4rem;
+    }
+    
+    mat-toolbar button {
+        margin: 0 4px;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .ristorino-toolbar {
+        padding: 0 12px;
+    }
+    
+    mat-toolbar button:not([routerLink="/login"]):not([routerLink="/registro"]):not(.language-button) {
+        display: none;
+    }
+    
+    .portal-logo {
+        font-size: 1.2rem;
+    }
+}
