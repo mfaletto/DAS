@@ -1,0 +1,12 @@
+com\ristorino\ristorinobackend\controller\RestaurantesController.class
+com\ristorino\ristorinobackend\RistorinoBackendApplication.class
+com\ristorino\ristorinobackend\model\Contenido.class
+com\ristorino\ristorinobackend\service\PromotionService.class
+com\ristorino\ristorinobackend\dto\RestauranteDetalleDTO.class
+com\ristorino\ristorinobackend\controller\PromocionesController.class
+com\ristorino\ristorinobackend\model\Restaurante.class
+com\ristorino\ristorinobackend\repository\RestauranteRepository.class
+com\ristorino\ristorinobackend\repository\SucursalRepository.class
+com\ristorino\ristorinobackend\model\Sucursal.class
+com\ristorino\ristorinobackend\service\ClickService.class
+com\ristorino\ristorinobackend\repository\ContenidoRepository.class

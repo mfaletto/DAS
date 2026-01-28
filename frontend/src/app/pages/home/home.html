@@ -1,0 +1,46 @@
+<div class="home-container">
+
+  <div class="hero-section">
+    <h1>Encuentra tu próximo festín</h1>
+    <p>Descubre los mejores restaurantes y promociones cerca de ti.</p>
+    <div class="search-bar">
+      <input type="text" placeholder="Quiero comer algo picante en el centro">
+      <button mat-flat-button color="warn">Buscar</button>
+    </div>
+  </div>
+
+  <h2>Promociones Destacadas</h2>
+
+  <div *ngIf="cargando" class="loader-container">
+    <mat-spinner></mat-spinner>
+    <p>Cargando promociones...</p>
+  </div>
+
+  <div *ngIf="error" class="error-container">
+    <p>{{ error }}</p>
+  </div>
+
+  <div *ngIf="!cargando && !error" class="promociones-grid">
+
+    <mat-card 
+      *ngFor="let promo of promociones" 
+      class="promo-card" 
+      (click)="onPromocionClick(promo)">
+      
+      <img 
+        mat-card-image 
+        [src]="getImagenUrl(promo)" 
+        [alt]="promo.contenidoPromocional"
+        (error)="onImageError($event)"
+        loading="lazy">
+
+      <mat-card-content>
+        <h3>{{ promo.contenidoPromocional }}</h3>
+        <p>Disfruta de esta oferta exclusiva en Ristorino Portal.</p>
+      </mat-card-content>
+      
+    </mat-card>
+
+  </div>
+
+</div>

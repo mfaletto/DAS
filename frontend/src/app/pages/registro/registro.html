@@ -1,0 +1,54 @@
+<div class="auth-wrapper">
+  <mat-card class="auth-card">
+    <mat-card-title class="card-title">Create Your Account</mat-card-title>
+    <mat-card-content>
+      <!-- Llama a la función TS en el submit -->
+      <form class="registration-form" (ngSubmit)="onSubmitRegistro()"> 
+        
+        <!-- Nombre (Añadido para tener un campo sin ser clave) -->
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" [(ngModel)]="registroData.nombre" name="nombre" required>
+        </mat-form-field>
+        
+        <!-- Correo Electrónico -->
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Email</mat-label>
+          <!-- Two-Way Binding -->
+          <input matInput placeholder="Email" [(ngModel)]="registroData.correo" name="correo" type="email" required>
+        </mat-form-field>
+
+        <!-- Teléfono -->
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="Phone" [(ngModel)]="registroData.telefonos" name="telefonos">
+        </mat-form-field>
+
+        <!-- Contraseña -->
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Password</mat-label>
+          <!-- Two-Way Binding -->
+          <input matInput type="password" placeholder="Password" [(ngModel)]="registroData.clave" name="clave" required>
+        </mat-form-field>
+        
+        <!-- Preferencias (Placeholder: Mapea al mockup) -->
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Gastronomic Preferences</mat-label>
+          <mat-select name="preferencia">
+            <mat-option value="italiana">Italiana</mat-option>
+            <mat-option value="sushi">Sushi</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <!-- Indicador de Carga/Error -->
+        <div *ngIf="cargando">Registrando usuario...</div>
+        <div *ngIf="errorRegistro" class="error-registro">{{ errorRegistro }}</div>
+        
+        <button mat-raised-button color="warn" type="submit" class="submit-button" [disabled]="cargando">
+          Register
+        </button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
