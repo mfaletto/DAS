@@ -1,0 +1,61 @@
+/* src/app/portal/components/restaurante-detail/restaurante-detail.component.css */
+
+/* Botones de Horario (Píldoras) */
+.btn-time-slot {
+  border: 1px solid #E5E7EB;
+  background: white;
+  color: var(--text-dark);
+  border-radius: 50px; /* Borde completamente redondo */
+  padding: 8px 24px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.btn-time-slot:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: #FFF5F5;
+  transform: translateY(-2px);
+}
+
+.btn-time-slot.active {
+  background-color: var(--text-dark); /* Seleccionado: Negro (Elegante) */
+  color: white;
+  border-color: var(--text-dark);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Inputs Personalizados (Sin borde duro) */
+.form-control:focus {
+  background-color: white;
+  box-shadow: 0 0 0 2px var(--primary); /* Anillo de foco sutil */
+}
+
+/* Formulario Pegajoso (Sticky) */
+.sticky-form {
+  position: sticky;
+  top: 2rem; /* Se queda pegado a 2rem del techo al scrollear */
+  z-index: 10;
+  background: var(--card-white);
+}
+
+/* Botón Primario Específico */
+.btn-primary {
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+  background-color: #E5E7EB;
+  color: #9CA3AF;
+  transform: none;
+  cursor: not-allowed;
+}

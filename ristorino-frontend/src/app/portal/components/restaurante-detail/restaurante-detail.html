@@ -1,0 +1,92 @@
+<nav class="navbar-custom">
+  <div class="container d-flex align-items-center">
+    <a routerLink="/portal" class="text-decoration-none text-muted fw-bold d-flex align-items-center me-auto">
+      <span class="fs-5 me-2">←</span> Volver
+    </a>
+    <span class="brand-logo" style="font-size: 1.2rem;">Risto<span>rino</span>.</span>
+  </div>
+</nav>
+
+<div class="container pb-5 mt-4">
+  <div class="row justify-content-center g-5">
+    
+    <div class="col-lg-7">
+      
+      <h1 class="fw-bold display-6 mb-2">Reservar Mesa</h1>
+      <p class="text-muted fs-5 mb-4">{{ mensaje }}</p>
+
+      <div class="bg-white p-4 rounded-4 shadow-sm border border-light mb-4">
+        <h6 class="text-uppercase text-muted fw-bold small mb-3">1. Seleccioná un Horario</h6>
+        
+        <div class="d-flex flex-wrap gap-2">
+          <button *ngFor="let t of turnos" 
+                  class="btn btn-time-slot" 
+                  [class.active]="turnoSeleccionado === t"
+                  (click)="turnoSeleccionado = t">
+            {{ t }}
+          </button>
+          
+          <div *ngIf="turnos.length === 0" class="alert alert-light w-100 text-center text-muted border-0">
+            <span class="d-block fs-2 mb-2">😔</span>
+            No hay turnos disponibles.
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-4 shadow-sm border border-light">
+        <h6 class="text-uppercase text-muted fw-bold small mb-3">Información Importante</h6>
+        <ul class="text-muted small mb-0 ps-3">
+          <li class="mb-2">Tolerancia de espera: 15 minutos.</li>
+          <li class="mb-2">Mesas al aire libre sujetas a clima.</li>
+          <li>Cancelación gratuita hasta 2 horas antes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card border-0 shadow-lg rounded-4 sticky-form">
+        <div class="card-body p-4">
+          <h5 class="fw-bold mb-4">Confirmar Reserva</h5>
+          
+          <div class="mb-3">
+            <label class="form-label small fw-bold text-muted">COMENSALES</label>
+            <div class="row g-2">
+              <div class="col-6">
+                <input type="number" class="form-control bg-light border-0 py-2" placeholder="Adultos" [(ngModel)]="cantAdultos" min="1">
+              </div>
+              <div class="col-6">
+                <input type="number" class="form-control bg-light border-0 py-2" placeholder="Niños" [(ngModel)]="cantMenores" min="0">
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label small fw-bold text-muted">OBSERVACIONES</label>
+            <textarea class="form-control bg-light border-0" rows="3" 
+                      placeholder="Alergias, silla de bebé, cumpleaños..." 
+                      [(ngModel)]="observaciones"></textarea>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-3 pt-3 border-top">
+            <span class="text-muted small">Costo de reserva</span>
+            <span class="fw-bold text-success">Bonificado</span>
+          </div>
+
+          <button class="btn btn-primary w-100 py-3 rounded-3 fw-bold shadow-sm"
+                  [disabled]="!turnoSeleccionado"
+                  (click)="confirmarReserva()">
+            Confirmar Reserva
+          </button>
+          
+          <div class="text-center mt-3">
+            <small class="text-muted" style="font-size: 0.75rem;">
+              🔒 Tus datos viajan seguros con Ristorino
+            </small>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

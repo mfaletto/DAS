@@ -1,0 +1,67 @@
+<nav class="navbar-custom sticky-top">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a routerLink="/portal" class="brand-logo">Risto<span>rino</span>.</a>
+    
+    <div class="user-menu">
+      <div class="user-avatar">M</div>
+      <a routerLink="/auth/login" class="text-decoration-none text-muted small fw-bold">
+        Salir
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container pb-5">
+  
+  <div class="text-center py-5">
+    <h2 class="fw-bold display-6 mb-2">¿Dónde comemos hoy?</h2>
+    <p class="text-muted fs-5">Reservá las mejores mesas de la ciudad en tiempo real.</p>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-10"> <div class="row g-4"> <div class="col-md-6">
+          <div class="card card-custom h-100 cursor-pointer" [routerLink]="['restaurante', 1]">
+            <div class="img-wrapper">
+              <img src="https://images.unsplash.com/photo-1574126154517-d1e0d89e7344?w=800&q=80" class="card-img-top" alt="Pizza">
+              <span class="category-badge">🇮🇹 Italiana</span>
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="fw-bold mb-0 fs-5">La Bella Pizza</h4>
+                <span class="badge bg-light text-primary border">REST</span>
+              </div>
+              <p class="text-muted small mb-4">Muzzarella a la piedra, masa madre y tradición familiar.</p>
+              
+              <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                <small class="text-success fw-bold">● Abierto ahora</small>
+                <span class="text-primary fw-bold small">Ver Disponibilidad ➝</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card card-custom h-100 cursor-pointer" [routerLink]="['restaurante', 2]">
+            <div class="img-wrapper">
+              <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=800&q=80" class="card-img-top" alt="Sushi">
+              <span class="category-badge">🇯🇵 Nikkei</span>
+            </div>
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="fw-bold mb-0 fs-5">Perukai Sushi</h4>
+                <span class="badge bg-light text-secondary border">SOAP</span>
+              </div>
+              <p class="text-muted small mb-4">Fusión peruano-japonesa de alta gama y coctelería.</p>
+              
+              <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                <small class="text-success fw-bold">● Abierto ahora</small>
+                <span class="text-primary fw-bold small">Ver Disponibilidad ➝</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

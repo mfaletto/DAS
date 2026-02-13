@@ -1,0 +1,42 @@
+/* IMPORTANTE: Asegurate que esta sea la primera línea */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #FF6B6B;
+  --text-dark: #1F2937;
+  --bg-app: #F3F4F6;
+  --card-white: #FFFFFF;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Esto cambiará la letra fea */
+  background-color: var(--bg-app);
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* Navbar */
+.navbar-custom {
+  background: var(--card-white);
+  padding: 1rem 0;
+  border-bottom: 1px solid #E5E7EB;
+  margin-bottom: 2rem;
+}
+
+.brand-logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.brand-logo span { color: var(--primary); }
+
+/* Utilidades */
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+.cursor-pointer { cursor: pointer; }
