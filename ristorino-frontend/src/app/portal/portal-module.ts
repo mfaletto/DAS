@@ -1,28 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// 1. IMPORTAR ESTOS DOS
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // <--- Agregalo si usas ngModel
+import { RouterModule } from '@angular/router'; // <--- Agregalo si usas routerLink
 
 import { PortalRoutingModule } from './portal-routing-module';
-import { Portal } from './portal';
+import { Portal } from './portal'; // Asumo que tu clase se llama 'Portal'
 import { RestauranteDetail } from './components/restaurante-detail/restaurante-detail';
-import { MisReservas } from './components/mis-reservas/mis-reservas';
-
+import { MisReservasComponent } from './components/mis-reservas/mis-reservas'; // Chequeá la ruta
 
 @NgModule({
   declarations: [
+    // ACÁ SOLO VAN TUS COMPONENTES
     Portal,
     RestauranteDetail,
-    MisReservas
+    MisReservasComponent // <--- CORREGIDO (Tenías "MisReservas")
   ],
   imports: [
-    CommonModule,
+    // ACÁ VAN LOS MÓDULOS DE ANGULAR
+    CommonModule, // <--- Este es el que arregla el error del Pipe 'date'
     PortalRoutingModule,
-    // 2. AGREGARLOS AQUÍ
-    FormsModule,  // <--- Soluciona el error de ngModel
-    RouterModule  // <--- Soluciona el error de routerLink (por seguridad)
+    FormsModule,
+    RouterModule
   ]
 })
 export class PortalModule { }

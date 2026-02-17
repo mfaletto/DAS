@@ -42,4 +42,17 @@ export class AuthService {
   estaLogueado(): boolean {
     return !!localStorage.getItem('usuario_ristorino'); // O el nombre de tu clave
   }
+
+  // AGREGAR ESTE MÉTODO:
+  getUsuarioActual(): any {
+    // 1. Buscamos el texto guardado en la memoria del navegador
+    const usuarioJson = localStorage.getItem('usuario_ristorino'); 
+    // (Ojo: si usaste otra clave como 'usuario_ristorino' en el login, poné esa acá)
+
+    // 2. Si existe, lo convertimos de Texto a Objeto. Si no, devolvemos null.
+    if (usuarioJson) {
+      return JSON.parse(usuarioJson);
+    }
+    return null;
+  }
 }

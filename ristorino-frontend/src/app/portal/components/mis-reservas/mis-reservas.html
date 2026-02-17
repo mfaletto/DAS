@@ -1,1 +1,45 @@
-<p>mis-reservas works!</p>
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-dark">🍽️ Mis Reservas</h2>
+    <a routerLink="/portal" class="btn btn-outline-secondary btn-sm">← Volver al Menú</a>
+  </div>
+
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-2 text-muted">Buscando tus reservas...</p>
+  </div>
+
+  <div *ngIf="!loading && reservas.length === 0" class="alert alert-info text-center shadow-sm rounded-4">
+    <h4>¡Todavía no tenés reservas!</h4>
+    <p>¿Qué esperás para probar algo rico hoy?</p>
+    <a routerLink="/portal" class="btn btn-primary mt-2">Buscar Restaurante</a>
+  </div>
+
+  <div class="row g-3" *ngIf="!loading && reservas.length > 0">
+    <div class="col-md-6 col-lg-4" *ngFor="let r of reservas">
+      <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+        
+        <div class="card-header bg-white border-0 pt-3 pb-0">
+          <div class="d-flex justify-content-between">
+            <span class="badge bg-success rounded-pill">Confirmada</span>
+            <small class="text-muted">#{{ r.nroReserva }}</small>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-3">Restaurante #{{ r.nroRestaurante }}</h5>
+          <ul class="list-unstyled mb-0 text-muted small">
+            <li class="mb-2">📅 <strong>Fecha:</strong> {{ r.fechaReserva | date:'dd/MM/yyyy' }}</li>
+            <li class="mb-2">⏰ <strong>Hora:</strong> {{ r.horaReserva }}</li>
+            <li class="mb-0">👥 <strong>Personas:</strong> {{ r.cantAdultos + r.cantMenores }}</li>
+          </ul>
+        </div>
+
+        <div class="card-footer bg-light border-0 text-end">
+            <small class="text-muted fst-italic">¡Te esperamos!</small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

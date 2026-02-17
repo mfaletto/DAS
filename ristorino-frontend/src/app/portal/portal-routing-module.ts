@@ -4,7 +4,7 @@ import { Portal } from './portal'; // La pantalla principal
 import { RestauranteDetail } from './components/restaurante-detail/restaurante-detail'; // Ajustar
 import { availabilityResolver } from './resolvers/availability-resolver'; // Importar el resolver
 // 1. IMPORTAR EL COMPONENTE NUEVO
-import { MisReservas } from './components/mis-reservas/mis-reservas';
+import { MisReservasComponent } from './components/mis-reservas/mis-reservas';
 // 2. IMPORTAR EL GUARDIA
 import { authGuard } from '../core/guards/auth-guard';
 
@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   { 
     path: 'mis-reservas', 
-    component: MisReservas, 
+    component: MisReservasComponent, 
     canActivate: [authGuard] // <--- Ahora sí funciona porque lo importamos arriba
   }
   
