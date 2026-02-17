@@ -8,12 +8,14 @@ import { RouterModule } from '@angular/router';
 import { PortalRoutingModule } from './portal-routing-module';
 import { Portal } from './portal';
 import { RestauranteDetail } from './components/restaurante-detail/restaurante-detail';
+import { MisReservas } from './components/mis-reservas/mis-reservas';
 
 
 @NgModule({
   declarations: [
     Portal,
-    RestauranteDetail
+    RestauranteDetail,
+    MisReservas
   ],
   imports: [
     CommonModule,

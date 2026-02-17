@@ -1,0 +1,49 @@
+<div class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+  <div class="card border-0 shadow-sm rounded-4 p-4" style="max-width: 500px; width: 100%;">
+    
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-dark">Crear Cuenta</h2>
+      <p class="text-muted">Completá tus datos para reservar en Ristorino.</p>
+    </div>
+
+    <div *ngIf="mensajeError" class="alert alert-danger text-center p-2 mb-3 small">
+      {{ mensajeError }}
+    </div>
+
+    <form (ngSubmit)="registrar()">
+      <div class="row g-3">
+        <div class="col-6">
+          <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="usuario.nombre" name="nombre" required>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="usuario.apellido" name="apellido" required>
+        </div>
+
+        <div class="col-12">
+          <input type="email" class="form-control" placeholder="Correo Electrónico" [(ngModel)]="usuario.email" name="email" required>
+        </div>
+        
+        <div class="col-6">
+          <input type="text" class="form-control" placeholder="Teléfono" [(ngModel)]="usuario.telefono" name="telefono" required>
+        </div>
+        <div class="col-6">
+            <input type="text" class="form-control" placeholder="Dirección" [(ngModel)]="usuario.direccion" name="direccion" required>
+        </div>
+
+        <div class="col-12">
+          <input type="password" class="form-control" placeholder="Contraseña" [(ngModel)]="usuario.password" name="password" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 py-2 mt-4 fw-bold rounded-3">
+        Registrarme
+      </button>
+    </form>
+
+    <div class="text-center mt-3">
+      <p class="small text-muted">¿Ya tenés cuenta? 
+        <a routerLink="/auth/login" class="text-decoration-none fw-bold">Ingresá acá</a>
+      </p>
+    </div>
+  </div>
+</div>

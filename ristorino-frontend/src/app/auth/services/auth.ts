@@ -27,9 +27,19 @@ export class AuthService {
     this.router.navigate(['/auth/login']);
   }
 
+  // Método NUEVO para el Requerimiento 1
+  registrar(usuario: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/registro`, usuario);
+  }
+  
   // Método útil para obtener el usuario guardado desde cualquier componente
   get usuarioActual(): any {
     const userStr = localStorage.getItem('usuario_ristorino');
     return userStr ? JSON.parse(userStr) : null;
+  }
+
+  // En auth.service.ts
+  estaLogueado(): boolean {
+    return !!localStorage.getItem('usuario_ristorino'); // O el nombre de tu clave
   }
 }
