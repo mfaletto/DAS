@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif; /* Esto cambiará la letra fea */
+  font-family: 'Inter', sans-serif !important;/* Esto cambiará la letra fea */
   background-color: var(--bg-app);
   color: var(--text-dark);
   margin: 0;
@@ -32,11 +32,18 @@ body {
 }
 
 .brand-logo span { color: var(--primary); }
+/* Arreglar los Inputs para que no parezcan viejos */
+.form-control {
+  border-radius: 10px;
+  padding: 10px 15px;
+  border: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+}
 
-/* Utilidades */
 .form-control:focus {
+  background-color: #fff;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.15);
 }
 
 .cursor-pointer { cursor: pointer; }
