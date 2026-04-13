@@ -1,0 +1,103 @@
+### Informe de verificación: qué se usa y qué no se usa en el proyecto
+
+A continuación detallo, para cada bloque de requisitos técnicos, qué está presente (USADO) y qué no aparece (NO USADO) en los tres módulos backend del repositorio: `perukai-backend` (SOAP proveedor), `labellapizza-backend` (REST proveedor simple) y `ristorino-backend` (REST proveedor + cliente SOAP y JDBC).
+
+---
+
+### 1) Configuración Base del Proyecto
+- USADO
+  - Framework: Spring Boot (todos los POM heredan de `spring-boot-starter-parent`). Ej.: `perukai-backend/pom.xml` líneas 5–10; idem en los otros módulos.
+  - Lenguaje: Java 17 (`<java.version>17</java.version>` en todos los POM).
+  - Gestor de dependencias: Maven (estructura estándar y POMs presentes).
+- NO USADO
+  - Empaquetado WAR: no se define `<packaging>war</packaging>` en los POM; por defecto empaquetan como JAR.
+  - spring-boot-devtools: no se encuentra la dependencia en ningún POM.
+
+---
+
+### 2) Componentes para Servicios Web SOAP (Proveedor) — en `perukai-backend`
+- USADO
+  - Dependencia core: `spring-boot-starter-webservices` (POM `perukai-backend`, líneas 33–36).
+  - Definición WSDL: `wsdl4j` (POM `perukai-backend`, líneas 43–46).
+  - Clases de Configuración (todas presentes en `SoapConfig.java`):
+    - `ServletRegistrationBean`, `MessageDispatcherServlet` (líneas 18–25).
+    - `DefaultWsdl11Definition` (líneas 27–39).
+    - `SimpleXsdSchema` (líneas 41–45) y `XsdSchema`.
+  - Anotaciones Spring-WS en el endpoint:
+    - `@Endpoint`, `@PayloadRoot`, `@RequestPayload`, `@ResponsePayload` en `endpoint/PerukaiEndpoint.java` (líneas 10–17).
+  - JAXB (anotaciones Jakarta JAXB en clases request/response):
+    - En `soap/ConsultarDisponibilidadRequest.java` hay `jakarta.xml.bind.annotation.*` con `@XmlAccessorType`, `@XmlType`, `@XmlRootElement` y `@XmlElement`.
+- NO USADO (no encontrado en POM de `perukai-backend` ni en código proveedor SOAP)
+  - Anotaciones Java de JAX-WS/JWS para proveedor: `@WebService`, `@WebMethod` (paquete `jakarta.jws`) no se usan; el endpoint es Spring-WS puro.
+  - Dependencias Jakarta/JAXB específicas mencionadas en el requerimiento (como entradas explícitas de POM): `jakarta.xml.bind-api`, `jaxb-runtime`, `jakarta.xml.ws-api`, `jakarta.xml.soap-api`, `jakarta.jws-api`, `jaxb-core`, `saaj-impl`, `jaxws-rt`, `jaxws-tools`. Nota: algunas de estas sí se usan en el módulo cliente (`ristorino-backend`), pero no en el proveedor `perukai-backend`.
+
+---
+
+### 3) Componentes para Servicios RESTful (Proveedor) — en `labellapizza-backend` y `ristorino-backend`
+- USADO
+  - Dependencia Web: se usa `spring-boot-starter-webmvc` (no `web`), en `labellapizza-backend/pom.xml` (líneas 33–36) y `ristorino-backend/pom.xml` (líneas 33–36). Funcionalmente habilita MVC/REST.
+  - Configuración MVC: `WebMvcConfigurer` en `labellapizza-backend/config/WebConfig.java` (líneas 12–31). Se agregan `Interceptor` y un `HandlerMethodArgumentResolver` personalizado.
+  - Anotaciones REST:
+    - `@RestController`, `@RequestMapping`, `@GetMapping` en `LaBellaPizzaController.java` (líneas 16–18 y 26–28, 46–47, 59–60).
+    - `@PostMapping`, `@RequestBody` (y `@Transactional` asociada a la operación) en `ristorino-backend/controllers/ReservaController.java` (líneas 19–21 y 21). También se usa `@RequestMapping` a nivel clase (línea 13).
+- NO USADO
+  - Dependencia `spring-boot-starter-web` (se usa `webmvc` en su lugar).
+  - Soporte XML para respuestas: `jackson-dataformat-xml` no está en los POM.
+  - `ContentNegotiationConfigurer` para definir JSON como default: no se observa configuración explícita de negociación de contenido.
+  - `@PutMapping`, `@PathVariable` no se observan en los controladores provistos.
+  - Atributos `produces` en los `@GetMapping` no se ven en el código actual.
+
+---
+
+### 4) Componentes de Persistencia (Base de Datos) — principalmente en `ristorino-backend`
+- USADO
+  - Dependencias JDBC: `spring-boot-starter-jdbc` (`ristorino-backend/pom.xml`, líneas 68–71).
+  - Driver SQL Server: `com.microsoft.sqlserver:mssql-jdbc` (`ristorino-backend/pom.xml`, líneas 38–42). Clase del driver (`com.microsoft.sqlserver.jdbc.SQLServerDriver`) se asume por la dependencia, aunque no aparece referenciada manualmente en código.
+  - Componentes de acceso a datos:
+    - `JdbcTemplate` (ej.: `RestauranteRepository.java` líneas 16–17; `ReservaRepository.java` líneas 16–18).
+    - `SimpleJdbcCall` (en `ReservaRepository.java`, líneas 20–23 y 34–37 para ejecutar SP y leer OUT params).
+    - `RowMapper` manual (en `RestauranteRepository.java` líneas 19–29) para mapear resultados a `RestauranteBean`.
+    - Anotación `@Repository` en repositorios.
+- NO USADO
+  - `MapSqlParameterSource` / `SqlParameterSource`: no aparecen en el proyecto.
+  - `BeanPropertyRowMapper`: no aparece; se usa un `RowMapper` manual.
+  - Persistencia real en `labellapizza-backend`: allí los repos usan listas estáticas (sin DB).
+
+---
+
+### 5) Componentes de Seguridad
+- NO USADO (no se encontraron en el código ni en los POM)
+  - Para SOAP (WS-Security):
+    - `spring-ws-security`, `Wss4jSecurityInterceptor`, `SimplePasswordValidationCallbackHandler` no aparecen.
+  - Para REST (OAuth2/JWT):
+    - `spring-boot-starter-oauth2-resource-server`, `NimbusJwtDecoder`, `SecurityFilterChain` y configuración de `authorizeHttpRequests`/`csrf().disable()` no aparecen.
+
+---
+
+### 6) Componentes para Consumo de Servicios (Cliente) — en `ristorino-backend`
+- USADO
+  - Consumo SOAP dinámico (JAX‑WS/Jakarta SOAP):
+    - Dependencias: `jakarta.xml.ws-api` (POM `ristorino-backend`, líneas 48–52), `jakarta.xml.soap-api` (líneas 54–57), `com.sun.xml.ws:jaxws-rt` (líneas 59–62).
+    - Clases dinámicas utilizadas en `utils/SOAPClient.java` (importaciones en líneas 4–13): `Dispatch`, `Service`, `SOAPMessage`, `JAXBContext` (y `Marshaller`/`Unmarshaller`), además de manejo de `SOAPFaultException`.
+  - Procesamiento JSON para otros fines: `gson` (POM `ristorino-backend`, líneas 64–67). Se importa `com.google.gson.Gson` en `SOAPClient.java` (línea 3). No se observa uso de Jersey.
+- NO USADO
+  - Consumo REST con Jersey: no están `jersey-client` ni `jersey-hk2` en POM y no hay código Jersey.
+  - Generación de stubs por plugin (`jaxws-maven-plugin` con `wsimport`): no está configurado; se opta por cliente SOAP dinámico manual.
+
+---
+
+### 7) Plugins de Maven
+- USADO
+  - `spring-boot-maven-plugin` en los tres backends (para empaquetado/arranque). Ej.: `perukai-backend/pom.xml` líneas 49–55.
+- NO USADO
+  - `jaxws-maven-plugin` (versión 3.0.1) para `wsgen`/`wsimport`: no aparece en ningún POM.
+  - `maven-resources-plugin` para copiar WSDLs generados: no aparece.
+  - `maven-clean-plugin` (3.1.0): no aparece de forma explícita (puede estar por defecto del ciclo de vida, pero no está declarado).
+
+---
+
+### Resumen ejecutivo
+- Cumplido: base con Spring Boot + Java 17 + Maven; proveedor SOAP con Spring‑WS (`perukai-backend`); proveedores REST con Spring MVC (`labellapizza-backend`, `ristorino-backend`); acceso a datos JDBC + SQL Server en `ristorino-backend`; cliente SOAP dinámico con Jakarta SOAP/JAX‑WS y `jaxws-rt` en `ristorino-backend`.
+- Faltante/No usado respecto a lo solicitado: WAR, devtools, `spring-boot-starter-web` (se usa `webmvc`), `jackson-dataformat-xml`, negociación de contenido explícita, `@PutMapping`/`@PathVariable`/`produces`, `MapSqlParameterSource`/`BeanPropertyRowMapper`, seguridad SOAP (WSS4J) y seguridad REST (OAuth2/JWT), Jersey para consumo REST, y plugins Maven para generación/copias de WSDL (`jaxws-maven-plugin`, `maven-resources-plugin`).
+
+Si querés, puedo proponerte una lista de cambios mínimos para cubrir los puntos que faltan (p. ej., agregar `jackson-dataformat-xml`, una `SecurityFilterChain` básica para JWT, `spring-ws-security` con `Wss4jSecurityInterceptor`, y los plugins Maven correspondientes).
