@@ -61,7 +61,7 @@ export class RestauranteDetail implements OnInit {
     const nuevaReserva = {
       nroCliente: usuario ? usuario.nroCliente : 1, // Fallback a 1 si no hay login
       nroRestaurante: this.idRestaurante,
-      fechaReserva: '2023-12-25', // Hardcodeado por simplicidad académica
+      fechaReserva: new Date().toISOString().split('T')[0], // Fecha actual YYYY-MM-DD
       horaReserva: this.turnoSeleccionado,
       cantAdultos: this.cantAdultos,
       cantMenores: this.cantMenores,

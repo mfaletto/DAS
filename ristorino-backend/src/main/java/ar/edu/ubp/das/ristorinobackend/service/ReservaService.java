@@ -26,8 +26,12 @@ public class ReservaService {
         return reservaRepository.crearReserva(reserva);
     }
 
-    // AGREGAR ESTE MÉTODO:
     public List<ReservaBean> listarReservasPorCliente(int idCliente) {
         return reservaRepository.getReservasPorCliente(idCliente);
+    }
+
+    @Transactional
+    public void actualizarReserva(int nroReserva, ReservaBean reserva) throws Exception {
+        reservaRepository.actualizarReserva(nroReserva, reserva);
     }
 }

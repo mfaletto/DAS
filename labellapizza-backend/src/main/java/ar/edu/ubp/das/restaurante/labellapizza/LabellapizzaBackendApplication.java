@@ -2,9 +2,16 @@ package ar.edu.ubp.das.restaurante.labellapizza;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class LabellapizzaBackendApplication {
+public class LabellapizzaBackendApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(LabellapizzaBackendApplication.class);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(LabellapizzaBackendApplication.class, args);

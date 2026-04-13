@@ -10,14 +10,19 @@ import jakarta.xml.soap.*;
 import jakarta.xml.ws.Dispatch;
 import jakarta.xml.ws.Service;
 import jakarta.xml.ws.soap.SOAPFaultException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.xml.namespace.QName;
+import java.io.ByteArrayOutputStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.URL;
 import java.util.*;
 
 public class SOAPClient {
+
+    private static final Logger log = LoggerFactory.getLogger(SOAPClient.class);
 
     private String wsdlUrl;
     private String namespace;
@@ -48,12 +53,18 @@ public class SOAPClient {
     public <T> T callServiceForObject(Class<T> clazz, String responseElementName, Map<String, Object> parameters) {
         try {
             SOAPMessage soapRequest = createRequest(parameters);
-            soapRequest.writeTo(System.out); // Para depuración
-            System.out.println();
+            if (log.isDebugEnabled()) {
+                ByteArrayOutputStream reqOut = new ByteArrayOutputStream();
+                soapRequest.writeTo(reqOut);
+                log.debug("SOAP Request: {}", reqOut);
+            }
 
             SOAPMessage soapResponse = sendRequest(soapRequest);
-            soapResponse.writeTo(System.out); // Para depuración
-            System.out.println();
+            if (log.isDebugEnabled()) {
+                ByteArrayOutputStream resOut = new ByteArrayOutputStream();
+                soapResponse.writeTo(resOut);
+                log.debug("SOAP Response: {}", resOut);
+            }
 
             return processResponseForObject(soapResponse, clazz, responseElementName);
         } catch (SOAPFaultException e) {
@@ -78,10 +89,18 @@ public class SOAPClient {
     public <T> List<T> callServiceForList(Class<T> clazz, String responseElementName, Map<String, Object> parameters) {
         try {
             SOAPMessage soapRequest = createRequest(parameters);
-            soapRequest.writeTo(System.out); // Para depuración
+            if (log.isDebugEnabled()) {
+                ByteArrayOutputStream reqOut = new ByteArrayOutputStream();
+                soapRequest.writeTo(reqOut);
+                log.debug("SOAP Request: {}", reqOut);
+            }
 
             SOAPMessage soapResponse = sendRequest(soapRequest);
-            soapResponse.writeTo(System.out); // Para depuración
+            if (log.isDebugEnabled()) {
+                ByteArrayOutputStream resOut = new ByteArrayOutputStream();
+                soapResponse.writeTo(resOut);
+                log.debug("SOAP Response: {}", resOut);
+            }
 
             return processResponseForList(soapResponse, clazz, responseElementName);
         } catch (SOAPFaultException e) {

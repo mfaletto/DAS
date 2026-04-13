@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/torus/Documents/GitHub/DAS -name \"pom.xml\" -exec wc -l {} \\\\;)",
+      "Bash(grep -v \"^\\\\.$\")"
+    ]
+  }
+}

@@ -4,6 +4,8 @@ import ar.edu.ubp.das.ristorinobackend.models.ClienteBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
@@ -26,8 +28,7 @@ public class ClienteRepository {
             c.setApellido(rs.getString("apellido"));
             c.setCorreo(rs.getString("correo"));
             c.setClave(rs.getString("clave"));
-            c.setTelefono(rs.getString("telefono")); // Asegurate que en DB se llame 'telefono'
-            c.setDireccion(rs.getString("direccion")); // AGREGADO (Req 1)
+            c.setTelefonos(rs.getString("telefonos"));
             c.setHabilitado(rs.getBoolean("habilitado"));
             return c;
         }
@@ -51,20 +52,20 @@ public class ClienteRepository {
         return count != null && count > 0;
     }
 
-    // REGISTRO: Insertar nuevo usuario (Incluyendo dirección y teléfono)
+    // REGISTRO: Insertar nuevo usuario usando MapSqlParameterSource + NamedParameterJdbcTemplate
     public int registrar(ClienteBean c) {
-        // Nota: El PDF pide "Preferencias gastronómicas", pero si no tenés esa columna en la DB aún,
-        // lo dejamos para una fase 2. Lo crítico ahora es Nombre, Apellido, Mail, Clave, Tel y Dir.
-        String sql = "INSERT INTO clientes (nombre, apellido, correo, clave, telefono, direccion, habilitado) VALUES (?, ?, ?, ?, ?, ?, 1)";
+        String sql = "INSERT INTO clientes (nombre, apellido, correo, clave, telefonos, habilitado) " +
+                     "VALUES (:nombre, :apellido, :correo, :clave, :telefonos, 1)";
 
-        return jdbcTemplate.update(sql,
-                c.getNombre(),
-                c.getApellido(),
-                c.getCorreo(),
-                c.getClave(),
-                c.getTelefono(),
-                c.getDireccion()
-        );
+        MapSqlParameterSource params = new MapSqlParameterSource()
+                .addValue("nombre", c.getNombre())
+                .addValue("apellido", c.getApellido())
+                .addValue("correo", c.getCorreo())
+                .addValue("clave", c.getClave())
+                .addValue("telefonos", c.getTelefonos());
+
+        NamedParameterJdbcTemplate namedTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+        return namedTemplate.update(sql, params);
     }
 
     // EXTRAS: Método para buscar reservas por ID de cliente (Para Req 16)

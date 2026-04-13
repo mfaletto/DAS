@@ -10,8 +10,8 @@ const routes: Routes = [
   },
   { 
     path: 'portal', 
-    loadChildren: () => import('./portal/portal-module').then(m => m.PortalModule)
-    //canActivate: [authGuard] // <--- 2. ¡ACTIVAR EL ESCUDO AQUÍ!
+    loadChildren: () => import('./portal/portal-module').then(m => m.PortalModule),
+    canActivate: [authGuard] // <--- 2. ¡ESCUDO ACTIVADO!
   },
   // Agregamos la ruta directa al registro por si acaso
   // { path: 'register', component: RegistroComponent } (Esto ya lo maneja auth/register)

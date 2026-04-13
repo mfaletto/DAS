@@ -16,7 +16,11 @@ public class IAController {
     // Ejemplo: "Quiero comer sushi barato" -> { categoria: "SUSHI", precio: "BAJO" }
     @PostMapping("/interpretar")
     public ResponseEntity<?> interpretarBusqueda(@RequestBody Map<String, String> body) {
-        String texto = body.get("texto").toLowerCase();
+        String textoRaw = body.get("texto");
+        if (textoRaw == null || textoRaw.isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of("error", "El campo 'texto' es obligatorio"));
+        }
+        String texto = textoRaw.toLowerCase();
 
         // Simulación de NLP (Procesamiento de Lenguaje Natural) básica
         String categoriaDetectada = "VARIOS";

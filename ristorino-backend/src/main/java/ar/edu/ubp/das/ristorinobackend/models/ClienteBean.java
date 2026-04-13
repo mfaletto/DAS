@@ -6,8 +6,7 @@ public class ClienteBean {
     private String nombre;
     private String clave;
     private String correo;
-    private String telefono;  // Cambiado a singular para coincidir con el Repo
-    private String direccion; // <--- AGREGADO (Requisito obligatorio)
+    private String telefonos;
     private boolean habilitado;
 
     // Constructor vacío
@@ -29,11 +28,8 @@ public class ClienteBean {
     public String getCorreo() { return correo; }
     public void setCorreo(String correo) { this.correo = correo; }
 
-    public String getTelefono() { return telefono; }
-    public void setTelefono(String telefono) { this.telefono = telefono; }
-
-    public String getDireccion() { return direccion; }
-    public void setDireccion(String direccion) { this.direccion = direccion; }
+    public String getTelefonos() { return telefonos; }
+    public void setTelefonos(String telefonos) { this.telefonos = telefonos; }
 
     public boolean isHabilitado() { return habilitado; }
     public void setHabilitado(boolean habilitado) { this.habilitado = habilitado; }

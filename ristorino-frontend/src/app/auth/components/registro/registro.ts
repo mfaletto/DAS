@@ -13,10 +13,9 @@ export class RegistroComponent {
     usuario = {
     nombre: '',
     apellido: '',
-    email: '', 
+    email: '',
     password: '',
-    telefono: '',
-    direccion: ''
+    telefono: ''
   };
   mensajeError: string = '';
 
@@ -29,8 +28,7 @@ export class RegistroComponent {
       apellido: this.usuario.apellido,
       correo: this.usuario.email,     // Angular 'email' -> Java 'correo'
       clave: this.usuario.password,   // Angular 'password' -> Java 'clave'
-      telefono: this.usuario.telefono,
-      direccion: this.usuario.direccion
+      telefonos: this.usuario.telefono
     };
 
     this.authService.registrar(clienteParaBackend).subscribe({
@@ -40,7 +38,7 @@ export class RegistroComponent {
       },
       error: (err) => {
         console.error(err);
-        this.mensajeError = err.error.mensaje || 'Error al registrarse. Intente nuevamente.';
+        this.mensajeError = err.error?.mensaje || 'Error al registrarse. Intente nuevamente.';
       }
     });
   }

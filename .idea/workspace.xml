@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b0e0643a-8bdb-4b85-96ec-b50083abd44a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Componentes no usados proyecto.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQLQuery1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQLQuery1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labellapizza-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/labellapizza-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labellapizza-backend/src/main/java/ar/edu/ubp/das/restaurante/labellapizza/LabellapizzaBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/labellapizza-backend/src/main/java/ar/edu/ubp/das/restaurante/labellapizza/LabellapizzaBackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labellapizza-backend/src/main/java/ar/edu/ubp/das/restaurante/labellapizza/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/labellapizza-backend/src/main/java/ar/edu/ubp/das/restaurante/labellapizza/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labellapizza-backend/src/main/java/ar/edu/ubp/das/restaurante/labellapizza/controller/LaBellaPizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/labellapizza-backend/src/main/java/ar/edu/ubp/das/restaurante/labellapizza/controller/LaBellaPizzaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/perukai-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/perukai-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/perukai-backend/src/main/java/ar/edu/ubp/das/restaurante/perukai/PerukaiBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/perukai-backend/src/main/java/ar/edu/ubp/das/restaurante/perukai/PerukaiBackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/perukai-backend/src/main/java/ar/edu/ubp/das/restaurante/perukai/config/SoapConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/perukai-backend/src/main/java/ar/edu/ubp/das/restaurante/perukai/config/SoapConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/RistorinoBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/RistorinoBackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/controllers/IAController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/controllers/IAController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/controllers/ReservaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/controllers/ReservaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/models/ClienteBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/models/ClienteBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/repositories/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/repositories/ClienteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/repositories/ReservaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/repositories/ReservaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/repositories/RestauranteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/repositories/RestauranteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/service/ReservaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/service/ReservaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/utils/SOAPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/java/ar/edu/ubp/das/ristorinobackend/utils/SOAPClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-frontend/src/app/auth/components/registro/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-frontend/src/app/auth/components/registro/registro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-frontend/src/app/auth/components/registro/registro.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-frontend/src/app/auth/components/registro/registro.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-frontend/src/app/portal/components/restaurante-detail/restaurante-detail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-frontend/src/app/portal/components/restaurante-detail/restaurante-detail.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ristorino-frontend/src/app/portal/resolvers/availability-resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ristorino-frontend/src/app/portal/resolvers/availability-resolver.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="235" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TomiRap&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mfaletto/DAS.git&quot;,
+    &quot;accountId&quot;: &quot;63a7ea96-bd1b-49c7-94c5-b430880f7294&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="38nf1L0RLEaAspjnKx660M87LmR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.RistorinoBackendApplication.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "newBranch",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/torus/Documents/GitHub/DAS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\torus\Documents\GitHub\DAS" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.RistorinoBackendApplication">
+    <configuration name="BatchNotificadorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="batch-notificador" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ar.edu.ubp.das.batch.BatchNotificadorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RistorinoBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="DAS" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ar.edu.ubp.das.ristorinobackend.RistorinoBackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0e0643a-8bdb-4b85-96ec-b50083abd44a" name="Changes" comment="" />
+      <created>1769440040118</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1769440040118</updated>
+      <workItem from="1769440041907" duration="398000" />
+      <workItem from="1769443735721" duration="39000" />
+      <workItem from="1769443812736" duration="1115000" />
+      <workItem from="1769446911659" duration="3150000" />
+      <workItem from="1769525883276" duration="540000" />
+      <workItem from="1769526446859" duration="192000" />
+      <workItem from="1769526665654" duration="6961000" />
+      <workItem from="1775662486899" duration="585000" />
+      <workItem from="1775666316523" duration="2311000" />
+      <workItem from="1775670083870" duration="5028000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/newBranch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

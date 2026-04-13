@@ -35,10 +35,23 @@ public class ReservaController {
         }
     }
 
-    // AGREGAR ESTE ENDPOINT (Req 16):
-    @GetMapping("/usuario/{id}")
+    @GetMapping(value = "/usuario/{id}", produces = "application/json")
     public ResponseEntity<List<ReservaBean>> obtenerReservasUsuario(@PathVariable int id) {
         List<ReservaBean> reservas = reservaService.listarReservasPorCliente(id);
         return ResponseEntity.ok(reservas);
+    }
+
+    // Endpoint para actualizar una reserva (@PutMapping + @PathVariable)
+    @PutMapping(value = "/{nroReserva}", produces = "application/json")
+    public ResponseEntity<?> actualizarReserva(@PathVariable int nroReserva, @RequestBody ReservaBean reserva) {
+        try {
+            reservaService.actualizarReserva(nroReserva, reserva);
+            return ResponseEntity.ok(Map.of(
+                    "mensaje", "Reserva actualizada",
+                    "nro_reserva", nroReserva
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error al actualizar: " + e.getMessage());
+        }
     }
 }

@@ -5,8 +5,8 @@ GO
 USE ristorino_db;
 GO
 
--- 2. Tabla de Restaurantes (Catálogo de sistemas externos)
--- Sirve para saber a qué URL llamar cuando el usuario elige uno
+-- 2. Tabla de Restaurantes (Catï¿½logo de sistemas externos)
+-- Sirve para saber a quï¿½ URL llamar cuando el usuario elige uno
 CREATE TABLE restaurantes (
     nro_restaurante INT PRIMARY KEY IDENTITY(1,1),
     razon_social VARCHAR(100) NOT NULL,
@@ -22,14 +22,14 @@ CREATE TABLE clientes (
     nro_cliente INT PRIMARY KEY IDENTITY(1,1),
     apellido VARCHAR(100) NOT NULL,
     nombre VARCHAR(100) NOT NULL,
-    clave VARCHAR(100) NOT NULL, -- En producción real iría hasheada
+    clave VARCHAR(100) NOT NULL, -- En producciï¿½n real irï¿½a hasheada
     correo VARCHAR(150) NOT NULL UNIQUE,
     telefonos VARCHAR(100),
     habilitado BIT DEFAULT 1
 );
 GO
 
--- 4. Tabla de Reservas (La transacción principal)
+-- 4. Tabla de Reservas (La transacciï¿½n principal)
 --[cite_start]-- Basado en RISTORINO-Logico.pdf [cite: 1414-1428]
 CREATE TABLE reservas_restaurantes (
     nro_reserva INT PRIMARY KEY IDENTITY(1,1),
@@ -51,7 +51,7 @@ GO
 
 -- 5. Insertar Datos Iniciales (Seed Data)
 
--- Los 4 Restaurantes que pide la cátedra
+-- Los 4 Restaurantes que pide la cï¿½tedra
 INSERT INTO restaurantes (razon_social, tipo_conexion, endpoint_url) VALUES 
 ('La Bella Pizza', 'REST', 'http://localhost:8081/api/v1/public'),
 ('Perukai', 'SOAP', 'http://localhost:8082/ws/'),
@@ -60,6 +60,6 @@ INSERT INTO restaurantes (razon_social, tipo_conexion, endpoint_url) VALUES
 GO
 
 -- Un cliente de prueba
-INSERT INTO clientes (apellido, nombre, clave, correo, telefonos, habilitado) VALUES 
+INSERT INTO clientes (apellido, nombre, clave, correo, telefonos, habilitado) VALUES
 ('Faletto', 'Marcos', '123456', 'marcos@email.com', '351123456', 1);
 GO

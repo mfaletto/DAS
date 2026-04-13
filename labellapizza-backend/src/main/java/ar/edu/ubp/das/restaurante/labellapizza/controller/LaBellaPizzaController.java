@@ -4,14 +4,11 @@ import ar.edu.ubp.das.restaurante.labellapizza.config.SucursalParam;
 import ar.edu.ubp.das.restaurante.labellapizza.model.Sucursal;
 import ar.edu.ubp.das.restaurante.labellapizza.repository.SucursalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/v1/public")
@@ -24,7 +21,7 @@ public class LaBellaPizzaController {
     private ar.edu.ubp.das.restaurante.labellapizza.repository.PromocionRepository promoRepository;
 
     // Endpoint 1: Listar todas (para ver qué IDs tenemos y hashearlos manualmente)
-    @GetMapping("/sucursales")
+    @GetMapping(value = "/sucursales", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Map<String, Object>>> listarParaPruebas() {
         List<Sucursal> sucursales = repository.listarTodas();
 
@@ -43,7 +40,7 @@ public class LaBellaPizzaController {
 
     // Endpoint 2: Consultar Disponibilidad (¡AQUÍ USAMOS EL RESOLVER!)
     // Fijate: No recibimos String hash, recibimos directamente el objeto Sucursal
-    @GetMapping("/disponibilidad")
+    @GetMapping(value = "/disponibilidad", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> consultar(@SucursalParam Sucursal sucursal) {
 
         Map<String, Object> body = new HashMap<>();
@@ -56,7 +53,7 @@ public class LaBellaPizzaController {
     }
 
     // Endpoint 3: Obtener Promociones (Marketing)
-    @GetMapping("/marketing")
+    @GetMapping(value = "/marketing", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> obtenerPromociones(@SucursalParam Sucursal sucursal) {
 
         // El Resolver ya buscó la sucursal y validó el hash por nosotros.
@@ -69,5 +66,26 @@ public class LaBellaPizzaController {
         response.put("contenido_marketing", promos);
 
         return ResponseEntity.ok(response);
+    }
+
+    // Endpoint 4: Actualizar Sucursal (@PutMapping + @PathVariable)
+    @PutMapping(value = "/sucursales/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> actualizarSucursal(@PathVariable int id, @RequestBody Sucursal datosActualizados) {
+        Optional<Sucursal> existente = repository.buscarPorId(id);
+        if (existente.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        Sucursal sucursal = existente.get();
+        if (datosActualizados.getNombre() != null) {
+            sucursal.setNombre(datosActualizados.getNombre());
+        }
+        if (datosActualizados.getDireccion() != null) {
+            sucursal.setDireccion(datosActualizados.getDireccion());
+        }
+        return ResponseEntity.ok(Map.of(
+                "mensaje", "Sucursal actualizada",
+                "sucursal", sucursal.getNombre(),
+                "direccion", sucursal.getDireccion()
+        ));
     }
 }
